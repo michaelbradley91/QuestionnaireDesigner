@@ -4,10 +4,10 @@
   "description": "Design questionnaires and import them into your app",
   "main": "main.js",
   "scripts": {
-    "start-dev": "concurrently --kill-others \"npm run start\" \"npm run watch\"",
+    "start-dev": "concurrently \"npm run start\" \"npm run watch\"",
     "start": ".\\node_modules\\electron\\dist\\electron .",
     "build": "webpack",
-    "watch": "webpack-dev-server --hot --inline"
+    "watch": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "concurrently": "^3.5.0",
     "electron": "~1.6.2",
     "loglevel": "^1.4.1",
+    "path": "^0.12.7",
     "source-map-loader": "^0.2.1",
     "typescript": "^2.4.2",
     "webpack": "^3.3.0",
