@@ -11,7 +11,8 @@
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
       "program": "${workspaceRoot}/main.js",
-      "protocol": "legacy"
+      "protocol": "legacy",
+      "preLaunchTask": "build"
     },
     {
       "name": "Electron Renderer",
@@ -25,7 +26,8 @@
         "${workspaceRoot}/main.js",
         "--remote-debugging-port=9222"
       ],
-      "webRoot": "${workspaceRoot}"
+      "webRoot": "${workspaceRoot}",
+      "preLaunchTask": "build"
     }
   ]
 }
