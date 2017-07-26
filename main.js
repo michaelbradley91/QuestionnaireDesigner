@@ -1,4 +1,6 @@
 const electron = require('electron')
+const installExtension = require('electron-devtools-installer').default
+const { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = require('electron-devtools-installer')
 
 // Module to control application life.
 const app = electron.app
@@ -7,6 +9,12 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+
+function installDevTool(devTool) {
+  installExtension(devTool)
+    .then((name) => console.log(`Added extension: ${name}`))
+    .catch((err) => console.log(`An error occurred: ${err}`))
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,6 +33,8 @@ function createWindow () {
   
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
+  installDevTool(REACT_DEVELOPER_TOOLS)
+  installDevTool(REDUX_DEVTOOLS)
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

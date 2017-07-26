@@ -1,47 +1,47 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const devServerPort = 9360;
+
 module.exports = {
     devtool: "eval",
     entry: {
         bundle: [
-            'webpack-dev-server/client?http://localhost:3000',
+            `webpack-dev-server/client?http://localhost:${devServerPort}`,
             'webpack/hot/only-dev-server',
             'react-hot-loader/patch',
             "./src/index.tsx"
         ]
     },
 
-    target: 'web',
+    // Despite running electron, for hot module replacement (HMR) to work, you have
+    // to target the web
+    target: 'electron-renderer',
 
     output: {
         path: path.join(__dirname, "dist"),
-        publicPath: "http://localhost:3000/static/",
+        publicPath: `http://localhost:${devServerPort}/static/`,
         filename: "bundle.js",
     },
 
-    // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
     devServer: { 
         contentBase: path.join(__dirname, "dist"),
-        publicPath: 'http://localhost:3000/static/',
+        // A full URL is required to ensure that webpack dev server looks on the correct path
+        // when updating modules.
+        publicPath: `http://localhost:${devServerPort}/static/`,
         hot: true,
-        port: 3000
+        port: devServerPort
     },
 
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
 
     module: {
         rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             { test: /\.tsx?$/, loaders: ["react-hot-loader/webpack", "awesome-typescript-loader"] },
-
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            //{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },
 

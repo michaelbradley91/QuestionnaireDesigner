@@ -23,11 +23,12 @@
     "url": "https://github.com/michaelbradley91/QuestionnaireDesigner/issues"
   },
   "devDependencies": {
+    "@types/electron-devtools-installer": "^2.0.2",
     "@types/react-hot-loader": "^3.0.3",
     "awesome-typescript-loader": "^3.2.1",
     "concurrently": "^3.5.0",
     "electron": "~1.6.2",
-    "electron-react-devtools": "^0.4.0",
+    "electron-devtools-installer": "^2.2.0",
     "loglevel": "^1.4.1",
     "path": "^0.12.7",
     "react-hot-loader": "next",
