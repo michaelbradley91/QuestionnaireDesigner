@@ -3,6 +3,8 @@
 // All of the Node.js APIs are available in this process.
 console.log('hello world!')
 
+require('electron-react-devtools').install()
+
 document.body.addEventListener('click', () => {
   console.log('hello vscode!')
 })
