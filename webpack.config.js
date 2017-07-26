@@ -18,8 +18,6 @@ module.exports = {
         path: path.join(__dirname, "dist"),
         publicPath: "http://localhost:3000/static/",
         filename: "bundle.js",
-        //hotUpdateChunkFilename: 'hot/hot-update.js',
-        //hotUpdateMainFilename: 'hot/hot-update.json'
     },
 
     // Enable sourcemaps for debugging webpack's output.

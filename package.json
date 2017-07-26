@@ -4,10 +4,9 @@
   "description": "Design questionnaires and import them into your app",
   "main": "main.js",
   "scripts": {
-    "start-dev": "concurrently \"npm run start\" \"npm run watch\"",
-    "start": ".\\node_modules\\electron\\dist\\electron .",
-    "build": "Set NODE_ENV=development && webpack",
-    "watch": "Set NODE_ENV=development && webpack-dev-server"
+    "dev": "concurrently \"npm run start\" \"npm run watch\"",
+    "start": ".\\node_modules\\electron\\dist\\electron . --remote-debugging-port=9361 --debug=9362 --nolazy",
+    "watch": "webpack-dev-server"
   },
   "repository": {
     "type": "git",

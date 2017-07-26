@@ -2,32 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      // You can begin Electron with npm run dev in the terminal, and then
+      // attach to the main process with the debug view.
+      "name": "Attach",
       "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "name": "Electron Main",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-      },
-      "program": "${workspaceRoot}/main.js",
-      "protocol": "legacy",
-      "preLaunchTask": "build"
+      "request": "attach",
+      "port": 9362,
+      "protocol": "legacy"
     },
     {
-      "name": "Electron Renderer",
+      // You should disable (comment out) the Chrome dev tools in main.js
+      // if you wish to debug the renderer process in VSCode.
+      "name": "Attach Electron Renderer",
       "type": "chrome",
-      "request": "launch",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-      },
-      "runtimeArgs": [
-        "${workspaceRoot}/main.js",
-        "--remote-debugging-port=9222"
-      ],
+      "request": "attach",
       "webRoot": "${workspaceRoot}",
-      "preLaunchTask": "build"
+      "port": 9361
     }
   ]
 }
