@@ -1,6 +1,6 @@
-import { TodoState, AppState } from "../../reducer";
-import { connect } from 'react-redux';
-import { TodosList } from "../presenters/TodosList";
+import { connect } from "react-redux"
+import { AppState, TodoState } from "../../reducer"
+import { TodosList } from "../presenters/TodosList"
 
 type TodosListStateProps = {
     todos: TodoState[]

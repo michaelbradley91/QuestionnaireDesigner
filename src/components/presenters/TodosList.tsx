@@ -8,8 +8,6 @@ type TodosListProps = {
 
 export const TodosList = (props: TodosListProps) => (
     <ul>
-        {props.todos.map((todo, index) => 
-            <Todo key={index} {...todo}/>
-        )}
+        {props.todos.map((todo, index) => <Todo key={index} {...todo}/>)}
     </ul>
 )

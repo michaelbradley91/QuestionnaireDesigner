@@ -1,6 +1,6 @@
-import * as React from "react";
-import { TodosListContainer } from "../containers/TodosListContainer";
-import { AddTodoContainer } from "../containers/AddTodoContainer";
+import * as React from "react"
+import { AddTodoContainer } from "../containers/AddTodoContainer"
+import { TodosListContainer } from "../containers/TodosListContainer"
 
 export const App = () => (
     <div>

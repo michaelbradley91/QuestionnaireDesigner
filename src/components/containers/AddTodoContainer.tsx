@@ -1,8 +1,7 @@
-
-import { AppState } from "../../reducer";
-import { Dispatch, connect } from "react-redux";
-import { addTodo } from "../../actions";
-import { AddTodo } from "../presenters/AddTodo";
+import { connect, Dispatch } from "react-redux"
+import { addTodo } from "../../actions"
+import { AppState } from "../../reducer"
+import { AddTodo } from "../presenters/AddTodo"
 
 type AddTodoDispatchProps = {
     addTodo: (text: string) => any
