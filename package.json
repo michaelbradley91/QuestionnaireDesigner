@@ -41,6 +41,7 @@
   "dependencies": {
     "@types/react": "^15.0.38",
     "@types/react-dom": "^15.5.1",
+    "@types/react-redux": "^4.4.47",
     "@types/webpack-env": "^1.13.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

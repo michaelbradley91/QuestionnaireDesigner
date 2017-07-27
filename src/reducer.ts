@@ -1,44 +1,26 @@
-import { VisibilityFilter, Action, ActionType } from "./actions";
+import { Action, ActionType } from "./actions";
 import { combineReducers } from 'redux'
 
-export type TodoType = {
+export type TodoState = {
     text: string,
     completed: boolean
 };
 
-type AppState = {
-    visibilityFilter: VisibilityFilter,
-    todos: TodoType[]
+export type AppState = {
+    todos: TodoState[]
 }
 
 export const initialState: AppState = {
-    visibilityFilter: VisibilityFilter.SHOW_ALL,
     todos: []
 }
 
-const todosReducer = (state: TodoType[] = initialState.todos, action: Action): TodoType[] => {
+const todosReducer = (state: TodoState[] = initialState.todos, action: Action): TodoState[] => {
     switch (action.type) {
         case ActionType.ADD_TODO:
             return [...state, {
                 text: action.params,
                 completed: false
             }]
-        case ActionType.TOGGLE_TODO:
-            return state.map((todo, index) => {
-                if (index === action.params) {
-                    return { ...todo, completed: !todo.completed }
-                }
-                return todo
-            })
-        default:
-            return state
-    }
-}
-
-const visibilityFilterReducer = (state: VisibilityFilter = initialState.visibilityFilter, action: Action): VisibilityFilter => {
-    switch (action.type) {
-        case ActionType.SET_VISIBILITY_FILTER:
-            return action.params
         default:
             return state
     }
@@ -46,8 +28,7 @@ const visibilityFilterReducer = (state: VisibilityFilter = initialState.visibili
 
 const reducer = (state: AppState = initialState, action: Action): AppState => {
     return <AppState> combineReducers({
-        todos: todosReducer,
-        visibilityFilter: visibilityFilterReducer
+        todos: todosReducer
     })(state, action)
 }
 
